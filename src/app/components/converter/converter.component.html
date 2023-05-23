@@ -1,0 +1,59 @@
+<mat-card class="converter">
+  <mat-card-title class="converter_title">Currency Converter</mat-card-title>
+  <div class="inputs"  >
+    <mat-card>
+      <form [formGroup]="fromForm" >
+        <p>From:</p>
+        <mat-form-field class="example-full-width" >
+          <mat-label>Amount</mat-label>
+          <input matInput type="number"
+                 [value]="fromForm.value.amount"
+                 formControlName="amount"
+                 (change)="convertCurrency({to:toForm.value, from: fromForm.value})">
+        </mat-form-field>
+
+        <mat-form-field class="inputs_item-select">
+          <mat-label>Currency</mat-label>
+          <mat-select formControlName="currency" >
+            <mat-option *ngFor="let item of currencyList"
+                        class="option"
+                        (click)="convertCurrency({to:toForm.value, from: fromForm.value})"
+                        [value]="item[0]">
+              <p class="option_title">{{item[0]}}, <span class="option_sub">{{item[1]}}</span></p>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </mat-card>
+
+    <button class="converter_button" (click)="changeCurrency({to:toForm.value, from: fromForm.value})">
+        <mat-icon>sync_alt</mat-icon>
+    </button>
+
+    <mat-card>
+      <form [formGroup]="toForm">
+      <p>To:</p>
+      <mat-form-field class="example-full-width">
+        <mat-label>Amount</mat-label>
+        <input matInput
+               [value]="toForm.value.amount"
+               formControlName="amount"
+               (change)="convertCurrency({to:toForm.value, from: fromForm.value})">
+      </mat-form-field>
+
+      <mat-form-field class="inputs_item-select">
+        <mat-label>Currency</mat-label>
+        <mat-select formControlName="currency" >
+          <mat-option
+            class="option"
+            *ngFor="let item of currencyList"
+            [value]="item[0]"
+            (click)="convertCurrency({to:toForm.value, from: fromForm.value})">
+            <p class="option_title">{{item[0]}}, <span class="option_sub">{{item[1]}}</span></p>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      </form>
+    </mat-card>
+  </div>
+</mat-card>
