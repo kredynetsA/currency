@@ -13,4 +13,12 @@ export class CurrencyService {
     return this.http.get('https://api.monobank.ua/bank/currency')
   }
 
+  getCurrencySymbol(): Observable<any> {
+    return this.http.get('https://api.apilayer.com/exchangerates_data/symbols')
+  }
+
+  convertCurrency(to: any, from: any, amount: any): Observable<any> {
+    return this.http.get(`https://api.apilayer.com/exchangerates_data/convert?to=${to}&from=${from}&amount=${amount}`)
+  }
+
 }
