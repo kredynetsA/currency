@@ -1,13 +1,24 @@
 .header {
+  width: 100%;
   margin-bottom: 30px;
-  &_container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 18px;
+  background: #3f51b5;
+  color: #fff;
+  box-sizing: border-box;
 
-    width: 95%;
-    margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+    align-items: center;
+
+    &__logo {
+      margin-bottom: 10px;
+    }
   }
 }
 
@@ -15,8 +26,17 @@
   color: white;
   list-style: none;
   display: flex;
-  font-size: 18px;
+  font-size: 14px;
+
   &_item {
-    margin-right: 20px;
+    margin-right: 1em;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
   }
 }

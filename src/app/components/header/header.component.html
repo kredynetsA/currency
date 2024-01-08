@@ -1,8 +1,6 @@
-<mat-toolbar color="primary" class="header">
-  <div class="header_container">
-    <span>Currency Converter</span>
+<header class="header">
+  <div class="header__logo">Converter</div>
     <ul class="list">
       <li class="list_item" *ngFor="let item of currencyData">{{item.currencyCodeA}} {{item.rateBuy.toFixed(2)}} / {{item.rateSell.toFixed(2)}}</li>
     </ul>
-  </div>
-</mat-toolbar>
+</header>
