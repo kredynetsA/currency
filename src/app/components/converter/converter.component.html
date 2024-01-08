@@ -1,7 +1,7 @@
 <mat-card class="converter">
   <mat-card-title class="converter_title">Currency Converter</mat-card-title>
   <div class="inputs"  >
-    <mat-card>
+    <mat-card class="converter__card">
       <form [formGroup]="fromForm" >
         <p>From:</p>
         <mat-form-field class="example-full-width" >
@@ -30,7 +30,7 @@
         <mat-icon>sync_alt</mat-icon>
     </button>
 
-    <mat-card>
+    <mat-card class="converter__card">
       <form [formGroup]="toForm">
       <p>To:</p>
       <mat-form-field class="example-full-width">
