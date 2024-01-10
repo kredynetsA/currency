@@ -14,14 +14,17 @@
 
         <mat-form-field class="inputs_item-select">
           <mat-label>Currency</mat-label>
+
+
           <mat-select formControlName="currency" >
             <mat-option *ngFor="let item of currencyList"
                         class="option"
                         (click)="convertCurrency({to:toForm.value, from: fromForm.value})"
                         [value]="item[0]">
-              <p class="option_title">{{item[0]}}, <span class="option_sub">{{item[1]}}</span></p>
+                <p class="option_title">{{item[0]}}, <span class="option_sub">{{item[1].name}}</span></p>
             </mat-option>
           </mat-select>
+
         </mat-form-field>
       </form>
     </mat-card>
@@ -49,7 +52,7 @@
             *ngFor="let item of currencyList"
             [value]="item[0]"
             (click)="convertCurrency({to:toForm.value, from: fromForm.value})">
-            <p class="option_title">{{item[0]}}, <span class="option_sub">{{item[1]}}</span></p>
+            <p class="option_title">{{item[0]}}, <span class="option_sub">{{item[1].name}}</span></p>
           </mat-option>
         </mat-select>
       </mat-form-field>

@@ -29,7 +29,8 @@ export class ConverterComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
    const subscription1 = this.currencyService.getCurrencySymbol()
       .subscribe((res: any) => {
-      this.currencyList = Object.keys(res.symbols).map((key) => [key, res.symbols[key]])
+      this.currencyList = Object.keys(res.data).map((key) => [key, res.data[key]]);
+      this.currencyList.push(['UAH', {symbol: '₴', name: 'Ukrainian Hryvnia'}])
     })
     this.convertCurrency({to: this.toForm.value, from: this.fromForm.value })
     this.subscriptions.push(subscription1);
